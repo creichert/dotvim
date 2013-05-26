@@ -14,3 +14,12 @@ Generating tags
     $ cd ~/.vim
     $ ./generate_tags
 
+Shortcuts
+=========
+
+    \cp   - Generate clang_complete
+    <F8>  - Generate c++ ctags (only useable from cpp file).
+    <Tab> - Invoke autocomplete.
+    f     - Follow symbol (tags need to be generated).
+    s     - Pop tag from tagstack (move "back").
+
