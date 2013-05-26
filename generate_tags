@@ -1,0 +1,22 @@
+#!/bin/bash
+# set up tags for libc, the standard C library
+
+# libc
+#apt-file list libc6-dev | grep -o '/usr/include/.*\.h'> ~/.vim/tags/libc6-filelist
+#ctags --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+qf -I./libc6-ignore -f ~/.vim/tags/libc6 -L ~/.vim/tags/libc6-filelist
+#ctags --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+qf -f ~/.vim/tags/libc6 -L ~/.vim/tags/libc6-filelist
+
+# libstdc++
+apt-file list libstdc++6-4.7-dev | grep -E -o --exclude='.*\.tcc' '/usr/include/.*' > ~/.vim/tags/stdlibcpp-filelist
+ctags --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f ~/.vim/tags/stdlibcpp -L ~/.vim/tags/stdlibcpp-filelist
+
+# For Qt4
+apt-file list libqt4-dev | grep -E -o --exclude='.*\.tcc' '/usr/include/.*\.h' > ~/.vim/tags/libqt4-filelist
+ctags --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f ~/.vim/tags/libqt4 -L ~/.vim/tags/libqt4-filelist
+
+# Haskell platform
+#http://stackoverflow.com/questions/12045118/generating-ctags-for-haskell-platform-standard-library-specifically-for-prelu
+HS_SOURCE=/home/christopher/workspace/haskell/source/packages-base
+export LC_ALL=C
+find ${HS_SOURCE} -type f | egrep \.hs$\|\.lhs$ | xargs -Ii hothasktags i | sort > ~/.vim/tags/haskell-platform-tags
+
