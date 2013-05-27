@@ -35,7 +35,10 @@ map :vs   :vsplit .<CR>
 map <TAB> :tabnext<CR>
 
 " setup .clang_complete
-map \cp :!make clean && make CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++'<CR>
+map \cp :!clang_complete_gen
+
+" Make
+map m :make
 
 " tags
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"

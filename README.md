@@ -22,4 +22,5 @@ Shortcuts
     <Tab> - Invoke autocomplete.
     f     - Follow symbol (tags need to be generated).
     s     - Pop tag from tagstack (move "back").
+    Q     - Close all tabs.
 
