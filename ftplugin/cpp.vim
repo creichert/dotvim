@@ -27,6 +27,8 @@ let g:clang_snippets_engine='clang_complete'
 let g:clang_complete_copen=1
 "let g:clang_user_options='-std=c++11 -stdlib=libc++ -I'
 "let g:clang_close_preview=1
+"
+"let g:SuperTabDefaultCompletionType = "context"
 
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 

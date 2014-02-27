@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ ! -f ../CMakeLists.txt ]; then
+    make 'CXX=${HOME}/.vim/bundle/clang_complete/bin/cc_args.py clang++' -B
+    echo "Generating .clang_complete -- $CXX"
+else
+    echo "Generating .clang_complete" for CMake.
+    cmake CMAKE_CXX_COMPILER="$HOME/.vim/bundle/clang_complete/bin/cc_args.py clang++" ..
+    make -j4
+    mv .clang_complete ..
+fi
+
