@@ -8,6 +8,10 @@ filetype off
 syntax on
 filetype plugin on
 
+set undofile                " Save undo's after file closes
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
 set backspace=indent,eol,start
 set backup		" keep a backup file
 set history=50		" keep 50 lines of command line history
