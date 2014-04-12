@@ -44,16 +44,14 @@ map \cp :!clang_complete_gen
 " Make
 map m :make
 
-" tags
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_WinWidth = 30
-map <F4> :TlistToggle<cr> <C-w><C-w>
 map f <C-]>
-map F :tselect<CR>
+map F <]C-]>
 map s <C-t>
 
 set pumheight=20
 set tags=./tags,tags;$HOME
+
+autocmd BufEnter *.md exe 'noremap <F5> :!start chromium %:p<CR>'
 
 " NERDTree config
 " autocmd VimEnter * NERDTree
@@ -64,6 +62,9 @@ let NERDTreeShowBookmarks=1
 let NERDTreeHightlightCursorline=1
 map b :Bookmark 
 nmap <leader>n :NERDTreeToggle<cr>
+
+" QML support.
+au BufNewFile,BufRead *.qml set filetype=qml
 
 " Colors
 :hi Directory guifg=#FF0000 ctermfg=red

@@ -2,11 +2,13 @@
 set tags+=~/.vim/tags/haskell-platform-tags
 
 " try gf on import line, or ctrl-x ctrl-i, or [I, [i, ..
-setlocal include=^import\\s*\\(qualified\\)\\?\\s*
-setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.'
-setlocal suffixesadd=hs,lhs,hsc
+"setlocal include=^import\\s*\\(qualified\\)\\?\\s*
+"setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.'
+"setlocal suffixesadd=hs,lhs,hsc
 
 "" Key Mappings
+
+let g:haddock_browser = "chromium"
 
 nmap <silent> --h "=HaskellModuleHeader()<CR>:0put =<CR>
 nmap <silent> --s "=HaskellModuleSection()<CR>gp
@@ -14,11 +16,12 @@ nmap <silent> --s "=HaskellModuleSection()<CR>gp
 " Create tags
 map <F8> _ct<CR>
 
+
 " Show type
 map T _t<CR>
 
 " Show info for id under cursor
-map I _t<CR>
+" map I _t<CR>
 
 " Hoogle
 map <F12> _?1<CR>
